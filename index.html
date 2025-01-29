@@ -7,33 +7,30 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
 </head>
 <body onload="checkAuthStatus()">
 
-    <!-- Signup and Login Form -->
-    <div class="auth-container" id="auth-container">
-        <h2>Sign Up</h2>
-        <input type="email" id="signup-email" placeholder="Email" class="auth-input">
-        <input type="password" id="signup-password" placeholder="Password" class="auth-input">
-        <button onclick="signUp()" class="auth-btn">Sign Up</button>
-        
-        <h2>Sign In</h2>
-        <input type="email" id="signin-email" placeholder="Email" class="auth-input">
-        <input type="password" id="signin-password" placeholder="Password" class="auth-input">
-        <button onclick="signIn()" class="auth-btn">Sign In</button>
+    <header>
+        <h1>My Social Network</h1>
+        <button onclick="logout()">Logout</button>
+    </header>
+
+    <div class="profile-container">
+        <h2>Your Profile</h2>
+        <img id="profile-pic" src="default-avatar.png" alt="Profile Picture">
+        <input type="file" id="profile-pic-upload">
+        <input type="text" id="bio" placeholder="Write something about you...">
+        <button onclick="updateProfile()">Update Profile</button>
     </div>
 
-    <!-- Main Website Content -->
-    <div class="container" id="main-content" style="display: none;">
-        <header>
-            <h1>My Social Network</h1>
-            <button onclick="logout()">Logout</button>
-        </header>
-        <p>Welcome to your social network!</p>
+    <div class="post-container">
+        <h2>Upload a Post</h2>
+        <input type="file" id="post-image">
+        <button onclick="uploadPost()">Upload</button>
+        <div id="post-feed"></div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
